@@ -20,5 +20,5 @@ deployment:
       - cd public && rm -rf *
       - hugo -t hugo-uno
       - cd public && git add .
-      - cd public && git commit -m "[ci skip] publish"
+      - cd public && git commit -m "[ci skip] publish" || true
       - cd public && git push origin master
