@@ -1,0 +1,24 @@
+languageCode = "en-us"
+contentdir = "content"
+publishdir = "public"
+baseurl = "https://dohq.github.io"
+canonifyurls = true
+title = "やるだけやる"
+author = "R.Maejima"
+theme = "hugo-uno"
+
+
+[indexes]
+  category = "categories"
+  tag = "tags"
+[Params]
+  AuthorName = "dohq"
+  github = "dohq"
+  flickr = "d0h9"
+  twitter = "dohq"
+  email = "dorastone@gmail.com"
+  description = "やるだけやったその結果"
+  cv = "/pages/cv"
+  cover = "/images/background-cover.jpg"
+  logo = "https://golang.org/doc/gopher/run.png"
+  gaid = "UA-11120276-5"

@@ -1,0 +1,24 @@
+checkout:
+  post:
+    - git submodule sync
+    - git submodule update --init --recursive
+
+machine:
+  timezone: Asia/Tokyo
+
+dependencies:
+  pre:
+    - go get -v github.com/spf13/hugo
+    - git config --global user.name "CircleCI"
+    - git config --global user.email "circleci@example.com"
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - git clone git@github.com:dohq/dohq.github.io.git public
+      - cd public && rm -rf *
+      - hugo -t hugo-uno
+      - cd public && git add .
+      - cd public && git commit -m "[ci skip] publish"
+      - cd public && git push origin master
