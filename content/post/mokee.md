@@ -1,13 +1,29 @@
 +++
+menu = "main"
 date = "2017-01-11T02:09:46Z"
 title = "ArchLinuxでMokeeをビルドする"
+Description = "Mokee build"
+Tags = [
+  "Development",
+  "android",
+  "Mokee",
+]
+Categories = [
+  "Development",
+  "android",
+  "Mokee",
+]
+
 +++
 
 ## 自分メモ Mokee(MM)のビルド
 Xiaomi Mi5(gemini)のMokeeをビルドしたのでそのメモ
+
 開発ツール系はインストールしてあるよね？
 
 ### 環境
+
+```
 OS: Arch Linux
 Kernel: x86_64 Linux 4.8.13-1-ARCH
 Uptime: 4d 23h 59m
@@ -15,6 +31,7 @@ Packages: 836
 Shell: zsh 5.3.1
 CPU: Intel Core i5-2520M CPU @ 3.2GHz
 RAM: 7292MiB / 15934MiB
+```
 
 ### 以下雑なコマンド
 
@@ -34,7 +51,9 @@ mka bacon
 ### その他メモ
 selinux permissiveのkernelを作る
 
-``` device/xiaomi/gemini/BoardConfig.mk
+device/xiaomi/gemini/BoardConfig.mk
+
+```
  # Kernel
  BOARD_KERNEL_BASE := 0x80000000
 -BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=32M@0-0xffffffff
