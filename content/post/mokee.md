@@ -3,12 +3,12 @@ menu = "main"
 date = "2017-01-11T02:09:46Z"
 title = "ArchLinuxでMokeeをビルドする"
 Description = "Mokee build"
-Tags = [
+tags = [
   "Development",
   "android",
   "Mokee",
 ]
-Categories = [
+categories = [
   "Development",
   "android",
   "Mokee",
