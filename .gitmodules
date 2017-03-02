@@ -1,3 +1,3 @@
-[submodule "themes/hugo-uno"]
-	path = themes/hugo-uno
-	url = git@github.com:dohq/hugo-uno
+[submodule "themes/plain-blog"]
+	path = themes/plain-blog
+	url = https://github.com/LiaungYip/plain-blog
