@@ -4,12 +4,10 @@ date = "2017-01-11T02:09:46Z"
 title = "ArchLinuxでMokeeをビルドする"
 Description = "Mokee build"
 tags = [
-  "Development",
   "android",
   "Mokee",
 ]
 categories = [
-  "Development",
   "android",
   "Mokee",
 ]
@@ -18,6 +16,7 @@ categories = [
 
 ## 自分メモ Mokee(MM)のビルド
 Xiaomi Mi5(gemini)のMokeeをビルドしたのでそのメモ
+尚、対象デバイスはgemini(Xiaomi Mi5)とする。
 
 開発ツール系はインストールしてあるよね？
 
