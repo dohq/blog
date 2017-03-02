@@ -1,7 +1,7 @@
 languageCode = "en-US"
 contentdir = "content"
 publishdir = "public"
-baseurl = "https://dohq.github.io"
+baseurl = "https://dohq.github.io/"
 canonifyurls = true
 title = "やるだけやる"
 theme = "plain-blog"
