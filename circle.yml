@@ -22,7 +22,7 @@ deployment:
     commands:
       - git clone git@github.com:dohq/dohq.github.io.git public
       - cd public && rm -rf *
-      - hugo -t hugo-uno
+      - hugo -t plain-blog
       - cd public && git add .
       - cd public && git commit -m "[ci skip] publish" || true
       - cd public && git push origin master
