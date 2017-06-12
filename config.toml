@@ -6,6 +6,7 @@ canonifyurls = true
 title = "やるだけやる"
 theme = "plain-blog"
 copyright = "&copy; 2016 R.Maejima"
+enableGitInfo = true
 
 [author]
   author = "R.Maejima"
