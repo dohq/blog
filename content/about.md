@@ -17,10 +17,14 @@ title = "cv"
       - SUSE Linux
       - AIX
       - Solaris
-  * スクリプト言語を用いて運用ツールの作成を行えます
+  * 運用バッチを書いてます
       - bash
       - ksh
       - perl
+      - python
+      - go
+      - java
+      - c
   * Gitなどモダンなツールも使用出来ます
       - Git
       - SVN
