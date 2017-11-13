@@ -6,12 +6,12 @@ tags: ["vim", "editors"]
 categories: ["vim", "vimconf"]
 ---
 
-# 何勘違いしてるんだ?まだ俺のvimconf2017は終了してないぜ
+## 何勘違いしてるんだ?まだ俺のvimconf2017は終了してないぜ
 周回遅れにも程がありますが2017年11月4日に開催された[vimconf2017](http://vimconf.vim-jp.org/2017/)に参加しましたので、  
 その感想をば
 
-## AM
-### Vim, Me and Community (haya14busa)
+## GoZen
+#### Vim, Me and Community (haya14busa)
 incsearch.vim/vim-easymotionなどのauthorです。  
 私自身vim-easymotionは外せないプラギンなので足を向けて寝れませんね。  
 発表については、haya14busaさんとvimの歴史についてでした。  
@@ -27,7 +27,7 @@ easymotionは、元々Lokaltogさんという方が作ってたプラギンら�
 incsearchの機能がvim本体へと取り込まれたのはスゴいですね！おめでとうございます。
 
 
-### The Past and Future of Vim-go (fatih)
+#### The Past and Future of Vim-go (fatih)
 vim-goというgo言語をvimで開発するのにベリー便利なプラギンのauthorです。  
 そのほかにもgoのコミッターでもあるようで、さらにはDigitalOceanの中の人でもあるとか。  
 最近はvultrですが、昔はDigitalOcean使ってました！！！  
@@ -44,7 +44,7 @@ vim-goというgo言語をvimで開発するのにベリー便利なプラギン
 お弁当めっちゃ豪華やん？ってなって、このチケット代は安すぎるやろ…って心配になりつつ  
 すきやき弁当とコーヒーと白い恋人に舌鼓を打ちました。
 
-### Talk show (Vim 鼎談)
+#### Talk show (Vim 鼎談)
 kaoriyaさんÎÝattnさんÎÝ-takataさんの3名によるトークショーでした。  
 自分がvimに始めて触れたのがバージョン6とかその辺で「もう10年近く前になるのか…」と聞きながら黄昏れてたら  
 **「比較的新しいですねー by kaoriya」**  
@@ -57,21 +57,21 @@ mattnさんもおっしゃってしたが、2016年のvimアドベントカレ�
 それと、ここで始めて生mattnさんを見ました。twitterでエゴサしてたけど「mattnさん服着てる…？」みたいなの多すぎでした。
 
 
-## Gogo
-### Creating your lovely color scheme (kokopon)
+## GoGo
+#### Creating your lovely color scheme (kokopon)
 Icebergというcolorschemeのauthor  
 自分はここ1年くらいbase16-ashesを使ってるのですが、同じように暗めなcolorschemeなので興味深く拝見させて頂きました。  
 「まずコンセプトを決める事。なにか迷ったらコンセプトを元にする」  
 至言ですね！  
 
-### vim-mode-plus: The most ambitious vim emulator in the world (t9md)
+#### vim-mode-plus: The most ambitious vim emulator in the world (t9md)
 VisualStudioCodeでvimキーバインドを実現するプラグインについて  
 このようなプラグインって、あくまでvimに寄せていくタイプとvimの機能を越えたものを実装するタイプの2種類がありますが  
 このプラグインはどちらかというと後者のようです。  
 実際のコーディングで良く出てくるやりたい事に沿って次々とDEMOが進んでいくのは見ててとても気持の良いものでした。  
 また、時系列的に後になりますが、懇親会の中t9mdさんとhaya14busaさんがedgemotionについて話し込んでたのが印象的でした。  
 
-### Vim and Compatibility (senopen)
+#### Vim and Compatibility (senopen)
 グラサン黒服という出で立ちで登壇されてました。  
 そしてプレゼンにデカデカと映る **POSIX原理主義** の文字  
 ここで私は恐怖に打ち震えました。  
@@ -80,14 +80,14 @@ VisualStudioCodeでvimキーバインドを実現するプラグインについ�
 自分のvimはjobやchannelに限らずpython3にまで依存したプラグインがをガシガシ使っているので、ポータブルな環境を作る気力がないっす  
 後述するvimman goldでもなけりゃ結構大変だろうなぁと思いましたまる
 
-### neosnippet.vim + deoppet.nvim (Shougo)
+#### neosnippet.vim + deoppet.nvim (Shougo)
 みなさんご存知「ｱﾝｺｯｸﾋﾞﾑｵｰｳ」こと暗黒美無王の発表でした。
 Shougoさん自身もおっしゃってましたが、やはり日本人開発者のプラギンということで日本では大変な知名度を誇っています。  
 自分はechodocしかShougo wareは使ってないのですが、やはり知名度が高いというのは強い武器だなぁと  
 発表の中身はスニペットプラグインについてだったのですが、  
 「何が便利か分からない」→「じゃあ作るか」の流れは流石だと思いました。  
 
-### How ordinary Vim user contributed to Vim (daisu_zu)
+#### How ordinary Vim user contributed to Vim (daisu_zu)
 vim本体へのコントリビュートのお話  
 「vimは毎朝ビルドするもの」  
 わかる  
@@ -95,21 +95,21 @@ vim本体へのコントリビュートのお話
 自分もいくつか「これってもしかして…バグ？」というものに出会ってますので、いつか時間のある時にパッチを書いてみたい。(バグじゃなければあれですが)  
 vimを使う人って一定数以上の割合で**vimrcを弄る事**に快感を覚える人っているんじゃないかなぁと思います。
 
-### he new syntax highlighter for Vim (p_ck)
+#### he new syntax highlighter for Vim (p_ck)
 シンタックスハイライターをvimの正規表現を使わずに言語が持っている機能を使って実装されてお話  
 vimにjob機能が付いて、外部アプリケーションとの非同期でのデータのやりとりが楽になったのかなぁと  
 勝手に思いました。  
 「人類に正規表現は早すぎる」  
 ホーントコレイトン  
 
-### You're been Super Vimman. gina.vim (Λalisue)
+#### You're been Super Vimman. gina.vim (Λalisue)
 gina.vimというgit統合操作インターフェースのお話  
 alisueさんはこの他にもgista(gistインターフェース)だったり、いろいろgit関連プラグインを作ってる方という印象  
 gitプラギンはfugitiveでやってきたけどかなりリッチなインターフェースだし試しに使ってみようと思います。  
 
-## 懇親会
+### 懇親会
 食べ物めちゃ豪華でした！(自分は酒しか飲んでなかったですが)  
 飛び入りLTが4件くらいあった気がする。vimconf2018では、登壇はまず無いけどLTは目指してみようかなと決意をしたような気がする。  
 
 ## 総評
-来年も行くぞ！
+**俺のvimconf2017が終了したZE☆**
