@@ -1,5 +1,5 @@
 +++
-date = "2016-12-19T18:23:58+09:00"
+date = "2017-11-12T18:23:58+09:00"
 title = "cv"
 +++
 #### Name
@@ -9,7 +9,7 @@ title = "cv"
 #### Gender
 男性
 #### Job
-駆け出しインフラエンジニア、やってます
+駆け出しエンジニア、やってます
 #### Skill
   * Linuxを用いたシステム構築が得意です
       - RHEL
@@ -21,17 +21,16 @@ title = "cv"
       - bash
       - ksh
       - perl
-      - python
-      - go
+      - python (最近のMyFavorite)
       - java
       - c
-  * Gitなどモダンなツールも使用出来ます
+  * Gitとか一通り触れます
       - Git
       - SVN
       - docker
       - vagrant
       - chef
   * ほかに出来る事
-      - AWSでインスタンス立てるくらいは出来ます(lamdaはまだ業務で使用した事はありません)
+      - AWSで小規模ネットワークくらいなら立てれます
       - 在職中の会社ホームページを管理してます
       - VimVimしてます

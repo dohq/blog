@@ -4,8 +4,8 @@ publishdir = "public"
 baseurl = "https://dohq.github.io/"
 canonifyurls = true
 title = "やるだけやる"
-theme = "plain-blog"
-copyright = "&copy; 2016 R.Maejima"
+theme = "hugo-gentoo-theme"
+copyright = "2017 R.Maejima"
 enableGitInfo = true
 
 [author]
