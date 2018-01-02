@@ -1,10 +1,9 @@
----
-title: "Vimconf2017"
-date: 2017-11-08T11:50:07+09:00
-draft: false
-tags: ["vim", "editors"]
-categories: ["vim", "vimconf"]
----
++++
+title = "Vimconf2017"
+date = 2017-11-08T11:50:07+09:00
+tags = ["vim", "editors"]
+categories = ["Implessions"]
++++
 
 ## 何勘違いしてるんだ?まだ俺のvimconf2017は終了してないぜ
 周回遅れにも程がありますが2017年11月4日に開催された[vimconf2017](http://vimconf.vim-jp.org/2017/)に参加しましたので、  

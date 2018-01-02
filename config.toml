@@ -1,29 +1,20 @@
-languageCode = "en-US"
-contentdir = "content"
-publishdir = "public"
-baseurl = "https://dohq.github.io/"
-canonifyurls = true
+baseURL = "https://dohq.github.io/"
 title = "やるだけやる"
-theme = "hugo-gentoo-theme"
+theme = "temple"
+languageCode = "en-us"
 copyright = "2017 R.Maejima"
-enableGitInfo = true
+
+[params]
+  highlight = true
+  topmenu = "about"
 
 [author]
   author = "R.Maejima"
   gaid = "UA-11120276-5"
+  github = "dohq"
+  email = "dorastone@gmail.com"
+  twitter = "dohq"
 
-# TopMenu
-[[menu.global]]
-  url = "/tags/"
-  name = "Tags"
-  weight = 1
-
-[[menu.global]]
-  url = "/categories/"
-  name = "categories"
-  weight = 2
-
-[[menu.footer]]
-  url = "/about/"
-  name = "About"
-  weight = 3
+[taxonomies]
+  tag = "tags"
+  category = "categories"

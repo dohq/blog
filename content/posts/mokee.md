@@ -1,17 +1,8 @@
 +++
-menu = "main"
-date = "2017-01-11T02:09:46Z"
 title = "ArchLinuxでMokeeをビルドする"
-Description = "Mokee build"
-tags = [
-  "android",
-  "Mokee",
-]
-categories = [
-  "android",
-  "Mokee",
-]
-
+date = "2017-01-11T02:09:46Z"
+tags = ["android", "Mokee"]
+categories = ["tips"]
 +++
 
 ## 自分メモ Mokee(MM)のビルド
