@@ -13,33 +13,17 @@ enableGitInfo = true
   gaid = "UA-11120276-5"
 
 # TopMenu
-[[menu.top]]
+[[menu.global]]
   url = "/tags/"
   name = "Tags"
   weight = 1
 
-[[menu.top]]
+[[menu.global]]
   url = "/categories/"
   name = "categories"
   weight = 2
 
-[[menu.top]]
+[[menu.footer]]
   url = "/about/"
   name = "About"
   weight = 3
-
-# BottomMenu
-[[menu.bottom]]
-	url = "/contact/"
-	name = "Contact"
-	weight = 1
-
-[[menu.bottom]]
-	url = "//github.com/dohq/"
-	name = "GitHub"
-	weight = 2
-
-[[menu.bottom]]
-	url = "//twitter.com/dohq"
-	name = "Twitter"
-	weight = 3

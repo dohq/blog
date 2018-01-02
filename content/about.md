@@ -5,7 +5,7 @@ title = "cv"
 #### Name
 前島竜太郎
 #### Age
-26
+27
 #### Gender
 男性
 #### Job
@@ -21,7 +21,7 @@ title = "cv"
       - bash
       - ksh
       - perl
-      - python (最近のMyFavorite)
+      - python (最近好んで触るようになりました)
       - java
       - c
   * Gitとか一通り触れます
