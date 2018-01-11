@@ -1,8 +1,8 @@
 ---
 title: "メモリに乗らない量のselect結果をcsvへ書き出す(python)"
 date: 2018-01-10T18:27:24+09:00
-type: post
-draft: False
+tags: ["python"]
+categories: ["tips"]
 ---
 
 # 数百GBデータでもcsvに書き出したい！
@@ -12,7 +12,7 @@ draft: False
 気がついたらインスタンスが死んでたということもしばしば(当社比)  
 
 ## どーしたか
-まずコード
+コード
 
 ``` python
 def write_sql_result(sql, day, fname):
