@@ -1,9 +1,10 @@
-+++
-title = "ArchLinuxでMokeeをビルドする"
-date = "2017-01-11T02:09:46Z"
-tags = ["android", "Mokee"]
-categories = ["tips"]
-+++
+---
+title: "ArchLinuxでMokeeをビルドする"
+date: 2017-01-11T02:09:46+09:00
+tags: ["android", "Mokee"]
+categories: ["tips"]
+draft: false
+---
 
 ## 自分メモ Mokee(MM)のビルド
 Xiaomi Mi5(gemini)のMokeeをビルドしたのでそのメモ
