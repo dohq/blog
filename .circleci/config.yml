@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
     docker:
-      - image: circleci/golang:1.9
+      - image: cibuilds/hugo
 
     steps:
       - checkout
@@ -15,15 +15,10 @@ jobs:
             git submodule update --init --recursive
 
       - run:
-          name: hugo install
+          name: build and push
           command: |
-              go get -v github.com/spf13/hugo
               git config --global user.name "CircleCI"
               git config --global user.email "hugo-ci@ci.com"
-
-      - run:
-          name: push to master
-          command: |
               hugo
               git clone https://github.com/dohq/dohq.github.io.git
               ls
