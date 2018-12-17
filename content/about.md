@@ -1,36 +1,31 @@
-+++
+---
 date = "2017-11-12T18:23:58+09:00"
 title = "cv"
-+++
+---
+
 #### Name
-前島竜太郎
+dohq
 #### Age
-27
+28
 #### Gender
 男性
 #### Job
-駆け出しエンジニア、やってます
+201605~ 決済系サービス
+201404~ 小規模SIer
+201205~ 医療系SIer
+201004~ サーバメーカー フィールドエンジニア
 #### Skill
-  * Linuxを用いたシステム構築が得意です
-      - RHEL
-      - CentOS
-      - SUSE Linux
-      - AIX
-      - Solaris
-  * 運用バッチを書いてます
-      - bash
-      - ksh
-      - perl
-      - python (最近好んで触るようになりました)
-      - java
-      - c
-  * Gitとか一通り触れます
-      - Git
-      - SVN
-      - docker
-      - vagrant
-      - chef
-  * ほかに出来る事
-      - AWSで小規模ネットワークくらいなら立てれます
-      - 在職中の会社ホームページを管理してます
-      - VimVimしてます
+* Platform
+  * OS
+    * RHEL
+    * SUSE Enterprise
+    * HP-UX
+    * AIX
+* Program
+  * bat
+    * bash
+    * csh
+    * Windows bat
+  * Python
+  * golang
+  * c
