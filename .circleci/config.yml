@@ -1,0 +1,29 @@
+version: 2
+jobs:
+  build:
+    working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
+    docker:
+      - image: circleci/golang:1.9
+
+    steps:
+      - checkout
+      - run:
+          name: hugo install
+          command: |
+              go get -v github.com/spf13/hugo
+              git config --global user.name "hugo-ci"
+              git config --global user.email "hugo-ci@ci.com"
+
+      - run:
+          name: push to master
+          command: |
+              hugo
+              git clone https://github.com/dohq/dohq.github.io.git
+              ls
+              cp -rp public/* dohq.github.io/
+              cd dohq.github.io
+              ls
+              git remote set-url origin git@github.com:dohq/dohq.github.io.git
+              git add .
+              git commit -m "[ci skip] publish"
+              git push origin master
