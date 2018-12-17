@@ -1,8 +1,9 @@
 ---
 title: "Vimconf2017"
 date: 2017-11-08T11:50:07+09:00
-tags: ["vim", "editors"]
-categories: ["Implessions"]
+tags: ["vim", "editors", "vimconf"]
+categories: ["impression"]
+draft: False
 ---
 
 ## 何勘違いしてるんだ?まだ俺のvimconf2017は終了してないぜ

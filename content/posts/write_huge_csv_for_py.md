@@ -1,8 +1,9 @@
 ---
 title: "メモリに乗らない量のselect結果をcsvへ書き出す(python)"
 date: 2018-01-10T18:27:24+09:00
-tags: ["python"]
+tags: ["python", "aws", "redshift"]
 categories: ["tips"]
+draft: False
 ---
 
 # 数百GBデータでもcsvに書き出したい！

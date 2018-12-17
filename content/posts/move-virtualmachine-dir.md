@@ -1,8 +1,9 @@
 ---
 title: "VirtualMachineディレクトリを移動する"
 date: 2018-01-03T03:08:22+09:00
-tags: ["virtualbox", "archlinux"]
+tags: ["virtualbox"]
 categories: ["tips"]
+draft: False
 ---
 
 # 既存仮想マシンがある状態でVirtualMachineディレクトリを移動したい

@@ -1,7 +1,8 @@
 ---
 title: "EC2でntpの設定が効かない"
 date: 2018-01-19T14:29:46+09:00
-type: posts
+tags: ["ec2", "aws", "ntp"]
+categories: ["tips"]
 draft: False
 ---
 
