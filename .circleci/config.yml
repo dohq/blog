@@ -27,7 +27,7 @@ jobs:
               hugo
               git clone https://github.com/dohq/dohq.github.io.git
               ls
-              rm -rf dohq.github.com/*
+              rm -rf dohq.github.io/*
               mv public/* dohq.github.io/
               cd dohq.github.io
               ls
