@@ -1,9 +1,8 @@
 ---
 title: "BOSH Lite on cf-deployment"
 date: 2018-12-05T18:51:47+09:00
-tags = ["bosh", "cf"]
-categories = ["oss"]
-type: posts
+tags: ["bosh", "cf"]
+categories: ["oss"]
 draft: true
 ---
 
