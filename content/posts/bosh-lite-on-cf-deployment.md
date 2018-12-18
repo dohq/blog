@@ -13,7 +13,7 @@ draft: true
 **Linux上でしか試してません！**
 
 ## 構築環境
-```
+```bash
                    -`
                   .o+`
                  `ooo/                 OS: Arch Linux
@@ -59,14 +59,13 @@ Install Date    : Tue 31 Jul 2018 08:32:13 AM JST
 Install Reason  : Explicitly installed
 Install Script  : No
 Validated By    : None
-
 ```
 
 ## てじゅーん
 つらつらと書いていきます
 
 ### BOSH-liteデプロイ
-```
+```bash
 mkdir ~/workspace
 cd ~/workspace
 git init
@@ -74,6 +73,7 @@ git submodule add https://github.com/cloudfoundry/bosh-deployment
 ```
 
 [ドキュメント](https://bosh.io/docs/bosh-lite/) に書いてある
+
 1. `bosh create-env` コマンドを実行して
 2. 構築されたBOSH-liteへのaliasを張って
 3. ip routeで構築されたbosh-liteへのルーティング追加して
@@ -88,7 +88,7 @@ git submodule add https://github.com/cloudfoundry/bosh-deployment
 という訳で上のドキュメントに沿ってやっていきます。
 
 #### 構築用スクリプト
-```
+```bash
 vim bosh-deploy.sh
 
 bosh create-env bosh-deployment/bosh.yml \
@@ -115,7 +115,7 @@ chmod +x bosh-deploy.sh
 ```
 さて `bosh-deploy.sh` を実行すると必要なファイルのダウンロードとコンパイルが実行されます。
 最後に
-```
+```bash
 Finished deploying (00:04:36)
 
 Stopping registry... Finished (00:00:00)
@@ -139,7 +139,7 @@ VirtualBox上に構築されているVMなので設定からポチーでええ�
 BOSH-liteに関しては、VMをシャットダウンするとBOSHを再デプロイする必要があります。
 なのでその際にbosh-deploymentで設定されているVMスペックに戻ってしまいます。
 そこで [OpsFiles](https://bosh.io/docs/cli-ops-files/) を使用してVMスペックを変更します。
-```
+```bash
 $ mkdir ops-files
 $ vim ops-files/bosh-lite-scale-up.yml
 
@@ -185,13 +185,14 @@ Number of CPUs:  4
 大丈夫そうです。
 
 #### routeを追加する
-BOSH-lite上にデプロイされるコンポーネントに対してBOSH-liteを通してアクセス出来るようにrouteを追加します。  
-これはドキュメントの内容まんまですね。  
+BOSH-lite上にデプロイされるコンポーネントに対してホスト上からアクセス出来るようにrouteを追加します。  
+これはドキュメントの内容まんまですね。
+
 `sudo ip route add   10.244.0.0/16 via 192.168.50.6`
 
 #### bosh-cliを使えるように
 boshのcliを通してBOSH-liteに接続出来るよういくつかの環境変数を設定します。
-```
+```bash
 $ vim .envrc
 
 export BOSH_CLIENT=admin
@@ -205,10 +206,11 @@ $(bosh int bosh-lite-creds.yml --path=/uaa_ssl/ca)"
 export CREDHUB_CLIENT=credhub-admin
 export CREDHUB_SECRET=$(bosh int bosh-lite-creds.yml --path=/credhub_admin_client_secret)
 
-source .envrc or direnv allow(direnvを使用してるなら)
+source .envrc または
+direnv allow(direnvを使用してるなら)
 ```
 これで構築したBOSH-liteに対してコマンドが発行出来るようになりました。
-```
+```bash
 $ bosh env
 
 bosh-lite
@@ -227,8 +229,9 @@ admin
 #### stemcellのアップロード
 BOSHを通してコンポーネントをデプロイする際は、ベースとなるOSが必要になります。(これを[stemcell](https://bosh.io/stemcells/)といいます)  
 そのOSは環境毎に違うので、BOSH-lite用のものをアップロードします。  
-※BOSH-liteの場合はWarden (BOSH Lite)を、更にはtrustyとxenialどちらも必要です。
-```
+※BOSH-liteの場合はWarden (BOSH Lite)を、更にはtrustyとxenialどちらも必要です。  
+基本は最新がいいので、bosh.io/stemcells/を見るといいです。
+```bash
 $ bosh upload-stemcell --sha1 2976b5db401617ce92941e4228a37b6b87a31de1 \
   https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-xenial-go_agent\?v=170.13
 
@@ -252,19 +255,18 @@ Succeeded
 ```
 
 #### cloud-configのアップデート
-BOSH-liteに限った話ではないが、BOSHが動いている環境の設定はcloud-configというものによって管理されている。(AWSとかGCPとかVirtualBoxとかvSphereとか…)
-BOSH-liteは作りたてなのでcloud-configがありません。  
+BOSH-liteに限った話ではないですが、BOSHが動いている環境の設定はcloud-configというものによって管理されています。(AWSとかGCPとかVirtualBoxとかvSphereとか…)
 なのでVirtualBox用cloud-configを適用します。
-```
+```bash
 $ bosh update-cloud-config bosh-deployment/warden/cloud-config.yml
 
 y
 ```
 
 #### ちょっと試す
-以上でBOSH-liteの基本的な構築は完了なので、ちょっと動作確認してみる。  
-試しにnode-exporterをデプロイする
-```
+以上でBOSH-liteの基本的な構築は完了なので、ちょっと動作確認してみます。  
+試しにnode-exporterをデプロイしてみましょ
+```bash
 $ bosh -d node-exporter deploy <(wget -O- https://raw.githubusercontent.com/bosh-prometheus/node-exporter-boshrelease/master/manifests/node-exporter.yml)
 
 Redirecting output to ‘wget-log.7’.
@@ -360,8 +362,8 @@ Task 9 done
 
 Succeeded
 ```
-デプロイは出来たので、動作確認も
-```
+デプロイは出来たので動作確認も
+```bash
 $ bosh vms
 node-exporter/dc319609-355e-4748-a9a6-f9bd9e9e413f	running	z1	10.244.0.2	75a1ba31-ea73-4f8b-4049-e3f0e1f2c64c	default	true	
 Using environment '192.168.50.6' as client 'admin'
@@ -387,12 +389,12 @@ $ curl http://10.244.0.2:9100
                         </html>%
 ```
 
-バッチリですね！！！
+やったぜ(2回目)
 
 ### cloudfoundry構築
 こんな長い記事書いたこと殆どないのでもう疲れたよパトラッシュな感じですが、頑張っていきまっしょい。  
 
-```
+```bash
 git submodule add https://github.com/cloudfoundry/cf-deployment
 ```
 
