@@ -146,7 +146,7 @@ $ vim ops-files/bosh-lite-scale-up.yml
 - type: replace
   path: /resource_pools/name=vms/cloud_properties?
   value:
-    cpus: 4
+    cpus: 2
     memory: 8192
     ephemeral_disk: 32_768
 
@@ -179,7 +179,7 @@ CPU exec cap:    100%
 HPET:            off
 Chipset:         piix3
 Firmware:        BIOS
-Number of CPUs:  4
+Number of CPUs:  2
 ~~~
 ```
 大丈夫そうです。
