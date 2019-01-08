@@ -1,16 +1,28 @@
 kind: pipeline
-name: blog
+name: default
 
 steps:
-- build:
-    image: cbrgm/drone-hugo:latest
+- name: build
+  image: cbrgm/drone-hugo:latest
+  volumes:
+  - name: public
+    path: /tmp/public
+  settings:
     validate: true
     output: public
 
-- publish:
-    image: appleboy/drone-git-push
+- name: publish
+  image: appleboy/drone-git-push
+  volumes:
+  - name: public
+    path: /tmp/public
+  settings:
     branch: master
     remote: git@github.com:dohq/dohq.github.io.git
     force: false
-    commit: true
-    path: public/
+    author_name: drone_ci
+    path: public
+
+volumes:
+- name: public
+  temp: {}
