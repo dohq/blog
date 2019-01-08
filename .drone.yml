@@ -1,10 +1,13 @@
-pipeline:
-  build:
+kind: pipeline
+name: blog
+
+steps:
+- build:
     image: cbrgm/drone-hugo:latest
     validate: true
     output: public
 
-  publish:
+- publish:
     image: appleboy/drone-git-push
     branch: master
     remote: git@github.com:dohq/dohq.github.io.git
