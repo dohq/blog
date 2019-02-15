@@ -31,7 +31,7 @@ MOSだとGUIからEnvitonment->Settings->Computeで変更出来る
 *nova.conf* を書き換える場合、
 ```diff
 [libvirt]
-- virt_type=qume
+- virt_type=qemu
 + virt_type=kvm
 + hw_machine_type = "x86_64=pc-i440fx-trusty,i686=pc-i440fx-trusty"
 ```
@@ -70,7 +70,6 @@ vi /etc/cinder/cinder.conf
 
 [LVM-backend]
 + volume_clear=none
-+ volume_clear_size=0
 
 service cinder-volume restart
 ```
