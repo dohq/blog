@@ -3,7 +3,7 @@ title: "k3s on Time4vps"
 date: 2019-07-07T00:51:39+09:00
 tags: ["k8s","k3s"]
 categories: ["k8s"]
-draft: true
+draft: false
 ---
 
 # k8sクラスタ欲しい…欲しくない？
@@ -27,7 +27,8 @@ Fast SSD storage (1.00 EUR)
 ```
 のスペックで月1500円くらい(2019-07-07現在)  
 今回はとりあえずお試しでSingle構成で構築  
-ただし最低1ヶ月からなので、時間単位で課金にしたい場合は[ScaleWay](http://scaleway.com)が安そう。
+ただし最低1ヶ月からなので、時間単位で課金にしたい場合は[ScaleWay](http://scaleway.com)が安そう。  
+ここまで書いといてなんだけどぶっちゃけVPSに関しては蛇足で本番はk3sのセットアップについて
 
 ## セットアップ
 ### k3sインストール
