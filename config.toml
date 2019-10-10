@@ -1,4 +1,4 @@
-baseURL = "https://dohq.github.io/"
+baseURL = "https://blog.dohq.dev/"
 title = "やるだけやる"
 theme = "temple"
 languageCode = "en-us"
