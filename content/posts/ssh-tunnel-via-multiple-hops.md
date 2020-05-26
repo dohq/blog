@@ -29,12 +29,12 @@ draft: false
 ```
 
 ## 結論
-基本的には普通のポートフォワードコマンドに則る
-例として
-手元のPC: localhost
-踏み台: bastion
-自宅PC: home
-自宅サーバ: server
+基本的には普通のポートフォワードコマンドに則る  
+例として  
+手元のPC: localhost  
+踏み台: bastion  
+自宅PC: home  
+自宅サーバ: server  
 で繋げられるものとする
 
 `ssh -L 8080:localhost:44444 bastion ssh -4 -L 44444:server:443 home`
