@@ -3,7 +3,7 @@ title: "k3s on Time4vps"
 date: 2019-07-07T00:51:39+09:00
 tags: ["k8s","k3s"]
 categories: ["k8s"]
-draft: false
+draft: true
 ---
 
 # k8sクラスタ欲しい…欲しくない？
