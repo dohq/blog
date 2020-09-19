@@ -7,15 +7,18 @@ draft: false
 ---
 BOSH環境はあるけど時代に取り残されるのもツライ…のでk8s環境を作る  
 とりあえず  
+
 * シングルノード
 * pod network addon はcanal
 * インストーラはkubeadm
 
 BOSH環境があるので[kube-release](https://github.com/cloudfoundry-incubator/kubo-release)でも良かったんだけど出来るだけ素っぽいのがいいかなと思ってkubeadmにした。  
-更に書くとkubeadmで構築する前にホスト汚したくないなー→やっぱコンテナk8sやろ！  
-のアレで[rke](https://rancher.com/docs/rke/latest/en/)で構築したのだけれど「kube-proxy無いんだが？」「hyperkubeって素のkubeと何が違うんや？」と悩んでるのが面倒だった。  
+更に書くとkubeadmで構築する前にホスト汚したくないなー→やっぱコンテナk8sやろ  
+とか言って[rke](https://rancher.com/docs/rke/latest/en/)で構築したのだけれど  
+「kube-proxy無いんだが」「hyperkube is 何」  
+とか悩んでるのが面倒だったので素直にkubeadmで構築。  
 ページめっちゃ長いやんってなったけど大概ログなので実は大した事はしていない。  
-タイトルどおり途中まで
+タイトルどおり途中まで。
 
 ## 環境
 ```
@@ -52,7 +55,7 @@ echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | tee -a /etc/apt/so
 apt update
 apt -y install kubeadm kubelet kubectl
 ```
-`systemctl enable kubelet` しておく
+`systemctl enable kubelet` しておく。
 
 ### docker daemonの設定変更
 最初これやらなくて  
@@ -76,7 +79,7 @@ docker ps
 ```
 
 ### kubeadm init
-こっからk8sのインストール  
+こっからk8sのインストール
 ```
 kubeadm init --apiserver-advertise-address=172.16.1.15 --pod-network-cidr=10.244.0.0/16
 
@@ -152,7 +155,7 @@ kubeadm join 172.16.1.15:6443 --token <<とーくん>> \
 ```
 **Your Kubernetes control-plane has initialized successfully!**  
 って出ればOK  
-一般ゆーざでもkubectlを使えるようにするコマンドも出してくれているので、これをやっとくと良し
+一般ゆーざでもkubectlを使えるようにするコマンドも出してくれているので、これをやっとくと良し。
 ```
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
@@ -163,7 +166,7 @@ t401-srv   NotReady   master   5m43s   v1.19.1
 まだこの時点ではSTATUSはNotReadyでOK
 
 ### pod network addonのデプロイ
-`kubectl get po -A` するとcorednsが動いてないが、pod network addonが動いてないので正しい
+`kubectl get po -A` するとcorednsが動いてないが、pod network addonが動いてないので正しい。
 ```
 (*'-') < kgpo -A
 NAMESPACE     NAME                               READY   STATUS    RESTARTS   AGE
@@ -176,7 +179,7 @@ kube-system   kube-proxy-jp9xp                   1/1     Running   0          17
 kube-system   kube-scheduler-t410-srv            1/1     Running   0          18m
 ```
 ので、`kubectl apply`する  
-んだけど[kapp](https://get-kapp.io)経由で入れて管理してみる
+んだけど[kapp](https://get-kapp.io)経由で入れて管理してみる。
 ```
 (*'-') < kapp deploy -a canal -f https://docs.projectcalico.org/manifests/canal.yaml
 Changes
@@ -218,7 +221,7 @@ Continue? [yN]: y
 Succeeded
 Time: 0h:00m:58s
 ```
-これでNodeもReadyだしcorednsも正常に稼動している筈
+これでNodeもReadyだしcorednsも正常に稼動している筈。
 ```
 (*'-') < kgpo -A
 NAMESPACE     NAME                                       READY   STATUS    RESTARTS   AGE
@@ -371,7 +374,7 @@ Commercial support is available at
 
 ### metrics-serverのデプロイ
 AutoScaleはしないような気がするけど一応  
-一部ファイルの書き換えが必要なので、マニフェストは一度ダウンロードして編集する
+一部ファイルの書き換えが必要なので、マニフェストは一度ダウンロードして編集する。
 ```
 (*'-') < curl -fsL https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.7/components.yaml -O
 
