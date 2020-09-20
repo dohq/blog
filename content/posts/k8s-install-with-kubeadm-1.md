@@ -179,7 +179,7 @@ kube-system   kube-proxy-jp9xp                   1/1     Running   0          17
 kube-system   kube-scheduler-t410-srv            1/1     Running   0          18m
 ```
 ので、`kubectl apply`する  
-んだけど[kapp](https://get-kapp.io)経由で入れて管理してみる。
+んだけどせっかくなので[kapp](https://get-kapp.io)経由で入れて管理してみる。
 ```
 (*'-') < kapp deploy -a canal -f https://docs.projectcalico.org/manifests/canal.yaml
 Changes
@@ -242,7 +242,7 @@ t410-srv   Ready    master   29m   v1.19.1
 ### podデプロイ出来るようにする
 今回はMaster Node1台で構築している為、デフォルトではpodのデプロイが出来ないようになっている。
 ```
-(*'-') < kubectl describe node t410-srv
+(*'-') < kdno t410-srv
 Name:               t410-srv
 Roles:              master
 ...
@@ -251,7 +251,7 @@ Taints:             node-role.kubernetes.io/master:NoSchedule
 ```
 これを外してpodのデプロイを出来るようにする。
 ```
-(*'-') < kubectl taint nodes --all node-role.kubernetes.io/master-
+(*'-') < k taint nodes --all node-role.kubernetes.io/master-
 node/t410-srv untainted
 ```
 ### テスト
