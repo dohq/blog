@@ -277,7 +277,8 @@ spec:
         image: containous/whoami
         ports:
         - containerPort: 80
-
+```
+```
 (*'-') < kapp d -a whoami -f whoami.yml
 Target cluster 'https://172.16.1.15:6443' (nodes: t410-srv)
 
@@ -344,7 +345,8 @@ Time: 0h:00m:32s
          ports:
          - name: main-port
            containerPort: 4443
-
+```
+```
 (*'-') < kapp d -a metrics-server -f components.yaml
 
 Changes
