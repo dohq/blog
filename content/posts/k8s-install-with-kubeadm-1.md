@@ -257,118 +257,67 @@ node/t410-srv untainted
 ### テスト
 この時点でちょっとテスト
 ```
-(*'-') < cat nginx.yml
+(*'-') < cat whoami.yml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: whoami-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx
+      app: whoami
   template:
     metadata:
       labels:
-        app: nginx
+        app: whoami
     spec:
       containers:
-      - name: nginx
-        image: nginx
+      - name: whoami
+        image: containous/whoami
         ports:
         - containerPort: 80
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: nginx
-  labels:
-    app: nginx
-spec:
-  ports:
-  - port: 80
-    protocol: TCP
-  selector:
-    app: nginx
-(*'-') < kapp d -a nginx -f nginx.yml
+
+(*'-') < kapp d -a whoami -f whoami.yml
 Target cluster 'https://172.16.1.15:6443' (nodes: t410-srv)
 
 Changes
 
-Namespace  Name              Kind        Conds.  Age  Op      Op st.  Wait to    Rs  Ri
-default    nginx             Service     -       -    create  -       reconcile  -   -
-^          nginx-deployment  Deployment  -       -    create  -       reconcile  -   -
+Namespace  Name               Kind        Conds.  Age  Op      Op st.  Wait to    Rs  Ri
+default    whoami-deployment  Deployment  -       -    create  -       reconcile  -   -
 
-Op:      2 create, 0 delete, 0 update, 0 noop
-Wait to: 2 reconcile, 0 delete, 0 noop
+Op:      1 create, 0 delete, 0 update, 0 noop
+Wait to: 1 reconcile, 0 delete, 0 noop
 
 Continue? [yN]: y
 ...
 
 Succeeded
-Time: 0h:00m:13s
+Time: 0h:00m:17s
 
 (*'-') < kgpo
-NAME                                READY   STATUS    RESTARTS   AGE
-nginx-deployment-797f9f767d-6dq6w   1/1     Running   0          15s
-nginx-deployment-797f9f767d-dlftp   1/1     Running   0          15s
-nginx-deployment-797f9f767d-mmbdh   1/1     Running   0          15s
+NAME                               READY   STATUS    RESTARTS   AGE
+whoami-deployment-85b98b5c-2xtvl   1/1     Running   0          116s
+whoami-deployment-85b98b5c-4mnhc   1/1     Running   0          116s
+whoami-deployment-85b98b5c-w46f4   1/1     Running   0          116s
 
-(*'-') < kgsvc
-NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)   AGE
-kubernetes   ClusterIP   10.96.0.1        <none>        443/TCP   13m
-nginx        ClusterIP   10.105.147.100   <none>        80/TCP    20s
+(*'-') < kgdep
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+whoami-deployment   3/3     3            3           2m6s
 
-(*'-') < kd svc nginx
-Name:              nginx
-Namespace:         default
-Labels:            app=nginx
-                   kapp.k14s.io/app=1600468671765235154
-                   kapp.k14s.io/association=v1.d8db29936a13a6dcce60af89eb6e0cd2
-Annotations:       kapp.k14s.io/identity: v1;default//Service/nginx;v1
-                   kapp.k14s.io/original:
-                     {"apiVersion":"v1","kind":"Service","metadata":{"labels":{"app":"nginx","kapp.k14s.io/app":"1600468671765235154","kapp.k14s.io/association...
-                   kapp.k14s.io/original-diff-md5: 9e4358320402790700b5cb4f8f85c2d9
-Selector:          app=nginx,kapp.k14s.io/app=1600468671765235154
-Type:              ClusterIP
-IP:                10.105.147.100
-Port:              <unset>  80/TCP
-TargetPort:        80/TCP
-Endpoints:         10.244.0.10:80,10.244.0.8:80,10.244.0.9:80
-Session Affinity:  None
-Events:            <none>
-
-(*'-') < k port-forward nginx-deployment-797f9f767d-6dq6w 8080:80
+(*'-') < k port-forward whoami-deployment-85b98b5c-2xtvl 8080:80
 Forwarding from 127.0.0.1:8080 -> 80
 Handling connection for 8080
 
 (*'-') < curl localhost:8080
-<!DOCTYPE html>
-<html>
-<head>
-<title>Welcome to nginx!</title>
-<style>
-    body {
-        width: 35em;
-        margin: 0 auto;
-        font-family: Tahoma, Verdana, Arial, sans-serif;
-    }
-</style>
-</head>
-<body>
-<h1>Welcome to nginx!</h1>
-<p>If you see this page, the nginx web server is successfully installed and
-working. Further configuration is required.</p>
-
-<p>For online documentation and support please refer to
-<a href="http://nginx.org/">nginx.org</a>.<br/>
-Commercial support is available at
-<a href="http://nginx.com/">nginx.com</a>.</p>
-
-<p><em>Thank you for using nginx.</em></p>
-</body>
-</html>
-
+Hostname: whoami-deployment-85b98b5c-2xtvl
+IP: 127.0.0.1
+IP: 10.244.0.44
+RemoteAddr: 127.0.0.1:36238
+GET / HTTP/1.1
+Host: localhost:8080
+User-Agent: curl/7.72.0
+Accept: */*
 ```
 良さそう
 
