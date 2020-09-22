@@ -5,18 +5,21 @@ tags: ["k8s","linux"]
 categories: ["tips"]
 draft: false
 ---
+<!-- textlint-disable -->
 BOSH環境はあるけど時代に取り残されるのもツライ…のでk8s環境を作る  
-とりあえず  
+ざっくり構成としては以下
+<!-- textlint-enable -->
 
 * シングルノード
-* pod network addon はcanal
+* pod network addonはcanal
 * インストーラはkubeadm
+* metallbで外部からの接続を容易に
 
-BOSH環境があるので[kube-release](https://github.com/cloudfoundry-incubator/kubo-release)でも良かったんだけど出来るだけ素っぽいのがいいかなと思ってkubeadmにした。  
-更に書くとkubeadmで構築する前にホスト汚したくないなー→やっぱコンテナk8sやろ  
+BOSH環境があるので[kube-release](https://github.com/cloudfoundry-incubator/kubo-release)でも良かったんだけどできるだけ素っぽいのがいいかなと思ってkubeadmにした。  
+さらに書くとkubeadmで構築する前にホスト汚したくないなー→やっぱコンテナk8sやろ  
 とか言って[rke](https://rancher.com/docs/rke/latest/en/)で構築したのだけれど  
-「kube-proxy無いんだが」「hyperkube is 何」  
-とか悩んでるのが面倒だったので素直にkubeadmで構築。  
+「kube-proxy無いんだが」「hyperkube is何」  
+とかいろいろあったので結局素直にkubeadmで構築。  
 ページめっちゃ長いやんってなったけど大概ログなので実は大した事はしていない。  
 タイトルどおり途中まで。
 
@@ -79,7 +82,7 @@ docker ps
 ```
 
 ### kubeadm init
-こっからk8sのインストール
+こっからk8sのインストール。
 ```
 kubeadm init --apiserver-advertise-address=172.16.1.15 --pod-network-cidr=10.244.0.0/16
 
@@ -163,7 +166,7 @@ kubectl get nodes
 NAME       STATUS     ROLES    AGE     VERSION
 t401-srv   NotReady   master   5m43s   v1.19.1
 ```
-まだこの時点ではSTATUSはNotReadyでOK
+まだこの時点ではSTATUSはNotReadyでOK。
 
 ### pod network addonのデプロイ
 `kubectl get po -A` するとcorednsが動いてないが、pod network addonが動いてないので正しい。
@@ -239,7 +242,7 @@ kube-system   kube-scheduler-t410-srv                    1/1     Running   0    
 NAME       STATUS   ROLES    AGE   VERSION
 t410-srv   Ready    master   29m   v1.19.1
 ```
-### podデプロイ出来るようにする
+### podをデプロイできるようにする
 今回はMaster Node1台で構築している為、デフォルトではpodのデプロイが出来ないようになっている。
 ```
 (*'-') < kdno t410-srv
@@ -249,13 +252,15 @@ Roles:              master
 Taints:             node-role.kubernetes.io/master:NoSchedule
 ...
 ```
-これを外してpodのデプロイを出来るようにする。
+これを外してpodのデプロイをできるようにする。
 ```
 (*'-') < k taint nodes --all node-role.kubernetes.io/master-
 node/t410-srv untainted
 ```
 ### テスト
+<!-- textlint-disable -->
 この時点でちょっとテスト
+<!-- textlint-enable -->
 ```
 (*'-') < cat whoami.yml
 apiVersion: apps/v1
@@ -320,7 +325,9 @@ Host: localhost:8080
 User-Agent: curl/7.72.0
 Accept: */*
 ```
+<!-- textlint-disable -->
 良さそう
+<!-- textlint-enable -->
 
 ### metrics-serverのデプロイ
 AutoScaleはしないような気がするけど一応  
@@ -376,10 +383,13 @@ NAME       CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%
 t410-srv   327m         2%     1349Mi          1%
 ```
 
+<!-- textlint-disable -->
 良さそう
+<!-- textlint-enable -->
+
 ### cert-managerをイスントール
-TLS証明書の発行とか管理をしてくれる君とのこと  
-とりあえず[cert-manager](https://cert-manager.io/docs/)デプロイ
+TLS証明書の発行とか管理をしてくれる君とのこと。  
+とりあえず[cert-manager](https://cert-manager.io/docs/)デプロイ。
 ```
 (*'-') < kapp d -a cert-manager -f https://github.com/jetstack/cert-manager/releases/download/v1.0.1/cert-manager.yaml
 Target cluster 'https://172.16.1.15:6443' (nodes: t410-srv)
@@ -442,4 +452,6 @@ cert-manager-5749666d47-jcwfk              1/1     Running   0          48s
 cert-manager-cainjector-84666fb587-2hnwr   1/1     Running   0          48s
 cert-manager-webhook-8647f4cdcd-vlccm      1/1     Running   0          48s
 ```
+<!-- textlint-disable -->
 今回はここまで
+<!-- textlint-enable -->
