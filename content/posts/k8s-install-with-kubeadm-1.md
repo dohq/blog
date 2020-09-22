@@ -8,7 +8,6 @@ draft: false
 <!-- textlint-disable -->
 BOSH環境はあるけど時代に取り残されるのもツライ…のでk8s環境を作る  
 ざっくり構成としては以下
-<!-- textlint-enable -->
 
 * シングルノード
 * pod network addonはcanal
@@ -22,6 +21,7 @@ BOSH環境があるので[kube-release](https://github.com/cloudfoundry-incubato
 とかいろいろあったので結局素直にkubeadmで構築。  
 ページめっちゃ長いやんってなったけど大概ログなので実は大した事はしていない。  
 タイトルどおり途中まで。
+<!-- textlint-enable -->
 
 ## 環境
 ```
