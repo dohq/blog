@@ -20,7 +20,7 @@ BOSH環境があるので[kube-release](https://github.com/cloudfoundry-incubato
 「kube-proxy無いんだが」「hyperkube is何」  
 とかいろいろあったので結局素直にkubeadmで構築。  
 ページめっちゃ長いやんってなったけど大概ログなので実は大した事はしていない。  
-タイトルどおり途中まで。
+タイトルどおり途中まで
 <!-- textlint-enable -->
 
 ## 環境
