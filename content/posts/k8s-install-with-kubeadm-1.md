@@ -3,7 +3,7 @@ title: "kubeadmでk8sをインストール(single node)その1"
 date: 2020-09-13T00:42:22+09:00
 tags: ["k8s","linux"]
 categories: ["tips"]
-draft: false
+draft: true
 ---
 <!-- textlint-disable -->
 BOSH環境はあるけど時代に取り残されるのもツライ…のでk8s環境を作る  
