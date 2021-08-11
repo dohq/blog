@@ -3,17 +3,17 @@ title = "やるだけやる"
 theme = "temple"
 languageCode = "en-us"
 copyright = "2017 R.Maejima"
+pygmentsStyle = "friendly"
+pygmentsCodeFences = true
 
 [params]
-  highlight = true
-  topmenu = "about"
-  hjslangs = ["go", "vim", "dos"]
+  dateformatpretty = "2006-01-02"
+  toc = true
 
 [author]
   author = "R.Maejima"
   gaid = "UA-11120276-5"
   github = "dohq"
-  email = "dorastone@gmail.com"
   twitter = "dohq"
 
 [taxonomies]
