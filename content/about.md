@@ -6,7 +6,7 @@ date: 2017-11-12T18:23:58+09:00
 #### Name
 dohq
 #### Age
-28
+33
 #### Gender
 男性
 #### Job
@@ -21,6 +21,8 @@ dohq
     * SUSE Enterprise
     * HP-UX
     * AIX
+    * ArchLinux
+    * Ubuntu
 * Program
   * bat
     * bash
@@ -28,4 +30,3 @@ dohq
     * Windows bat
   * Python
   * golang
-  * c
