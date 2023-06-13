@@ -3,7 +3,7 @@ title: "USBストレージを自動でマウントする"
 date: 2023-06-12T11:44:46+09:00
 tags: ["linux", "ArchLinux"]
 categories: [""]
-draft: true
+draft: false
 ---
 # 背景
 UbuntuとかManjaroみたいに最初からユーザフレンドリーな統合デスクトップ環境がセットアップされているOSの場合、USBストレージを刺した際に自動でマウントされファイラ等から容易にアクセスする事が出来る。
