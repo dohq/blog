@@ -9,7 +9,7 @@ pygmentsCodeFences = true
 [params]
   dateformatpretty = "2006-01-02"
   toc = true
-  darkmode = true
+  darkmode = false
 
 [author]
   author = "R.Maejima"
