@@ -9,10 +9,10 @@ pygmentsCodeFences = true
 [params]
   dateformatpretty = "2006-01-02"
   toc = true
+  darkmode = true
 
 [author]
   author = "R.Maejima"
-  gaid = "UA-11120276-5"
   github = "dohq"
   twitter = "dohq"
 
