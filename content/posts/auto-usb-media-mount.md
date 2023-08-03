@@ -2,7 +2,7 @@
 title: "USBストレージを自動でマウントする"
 date: 2023-06-12T11:44:46+09:00
 tags: ["linux", "ArchLinux"]
-categories: [""]
+categories: ["tips"]
 draft: false
 ---
 # 背景
